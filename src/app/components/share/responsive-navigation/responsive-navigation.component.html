@@ -1,0 +1,58 @@
+<mat-sidenav-container *ngIf="router.url !== '/login'" class="sidenav-container">
+  <mat-toolbar [ngClass]="{matPrimaryDdesktop: !isScreenSmall}" color="primary" *ngIf="!isScreenSmall">
+    <mat-toolbar-row>
+      <button (click)="redirectHome()" mat-button>
+        <mat-icon>home</mat-icon> Inicio
+      </button>
+      <button mat-button disabled>
+        <mat-icon>confirmation_number</mat-icon> Cupons
+      </button>
+      <button (click)="emitFilter()" mat-button>
+        <mat-icon>search</mat-icon> Busca
+      </button>
+      <button mat-button disabled>
+        <mat-icon>person</mat-icon> Perfil
+      </button>
+      <button mat-button (click)="logout()">
+        <mat-icon>logout</mat-icon> Sair
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-toolbar class="bottom-toolbar" color="primary" *ngIf="isScreenSmall">
+    <mat-toolbar-row>
+      <div class="bottom-nav-item">
+        <button (click)="redirectHome()" mat-icon-button>
+          <mat-icon>home</mat-icon>
+        </button>
+      </div>
+      <div class="bottom-nav-item">
+        <button mat-icon-button>
+          <mat-icon>confirmation_number</mat-icon>
+        </button>
+      </div>
+      <div class="bottom-nav-item">
+        <button (click)="emitFilter()" mat-icon-button>
+          <mat-icon>search</mat-icon>
+        </button>
+      </div>
+      <div class="bottom-nav-item">
+        <button mat-icon-button>
+          <mat-icon>person</mat-icon>
+        </button>
+      </div>
+      <div class="bottom-nav-item">
+        <button mat-icon-button (click)="logout()">
+          <mat-icon>logout</mat-icon>
+        </button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <user-info [isMobile]="isScreenSmall"></user-info>
+
+  <router-outlet></router-outlet>
+</mat-sidenav-container>
+
+
+
+<router-outlet *ngIf="router.url === '/login'"></router-outlet>

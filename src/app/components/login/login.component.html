@@ -1,0 +1,44 @@
+<main class="row p-0 m-0">
+  <section class="form-section col-lg-4 col-md-12 col-sm-12" [ngClass]="{mobile: width < 994}">
+    <img src="/assets/logo.png" width="300" alt="logo">
+    <form [formGroup]="loginForm">
+      <section class="row p-5">
+        <mat-form-field class="col-12" [floatLabel]="'always'" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput placeholder="alex@email.com" formControlName="email">
+          <mat-icon matSuffix>mail_outline</mat-icon>
+          <mat-error *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+            Email invalido!
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="col-12 mb-0" [floatLabel]="'always'" appearance="outline">
+          <mat-label>Senha</mat-label>
+          <input [type]="hide ? 'password' : 'text'" matInput placeholder="Digite sua senha" formControlName="password">
+          <mat-icon matSuffix>lock_outline</mat-icon>
+        </mat-form-field>
+        <div class="col-12 d-flex justify-content-end mb-3 forget">
+          <a href="/">Esqueci minha senha</a>
+        </div>
+        <div class="col-12 login-btn">
+          <button class="btn btn-primary login-btn d-flex align-items-center justify-content-center" (click)="login()"
+            [disabled]="loginForm.invalid">
+            <mat-icon style="height: 25px; padding-right: 40px;">send</mat-icon>
+            Entrar
+          </button>
+        </div>
+        <div class="col-12 d-flex justify-content-center mt-1 mb-1">
+          <span class="text-center or-span">
+            Não tem conta?
+          </span>
+        </div>
+        <div class="col-12 singup-btn">
+          <button class="btn btn-secondary">
+            Cadastre-se
+          </button>
+        </div>
+      </section>
+    </form>
+  </section>
+  <section *ngIf="width > 994" class="illustration-section col-lg-8 col-md-12 col-sm-12">
+  </section>
+</main>

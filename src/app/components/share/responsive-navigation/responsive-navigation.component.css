@@ -1,0 +1,83 @@
+mat-toolbar.top-toolbar {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
+}
+
+.sidenav-container {
+    height: 100%;
+}
+
+.matPrimaryDdesktop {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.mat-toolbar.mat-primary {
+    background: #F8335E;
+    height: 60px;
+}
+
+.mat-toolbar-row {
+    justify-content: center;
+}
+
+.content {
+    padding: 20px;
+}
+
+.mat-drawer {
+    background-color: #F1F3F6;
+}
+
+.mat-drawer-container {
+    height: 100%;
+}
+
+.mat-list-item,
+a {
+    margin-bottom: 5px;
+    border: solid 1px rgb(107, 105, 105);
+}
+
+.bottom-toolbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    z-index: 1000;
+    background-color: #f5f5f5;
+}
+
+.bottom-nav-item button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.bottom-nav-item button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.bottom-nav-item button.mat-icon-button .mat-icon {
+    font-size: 24px;
+}
+
+.bottom-nav-item:nth-child(1) button {
+    background-color: #a89ca0;
+}
+
+.bottom-nav-item:nth-child(1) button .mat-icon {
+    color: white;
+}

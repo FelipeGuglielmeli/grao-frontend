@@ -1,0 +1,53 @@
+<ng-container *ngIf="searchControl">
+  <div class="search-container">
+    <mat-form-field class="search-field" [floatLabel]="'always'" appearance="outline">
+      <input type="text" [(ngModel)]="searchTerm" matInput placeholder="Pesquisar"
+        (keyup.enter)="fetchRestaurants(true)">
+      <button mat-icon-button matSuffix (click)="fetchRestaurants(true)">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+</ng-container>
+
+<div class="d-flex justify-content-center row m-0">
+  <mat-card class="restaurant-card col-lg-4 col-md-6 col-sm-12" *ngFor="let restaurant of restaurants"
+    (click)="viewRestaurant(restaurant.id)">
+    <mat-card-header>
+      <div mat-card-avatar class="header-avatar">
+        <img src="assets/logo.png" alt="Restaurant logo" />
+      </div>
+      <mat-card-title>{{restaurant.name}}</mat-card-title>
+      <mat-card-subtitle class="mb-2">{{restaurant.description}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <img mat-card-image src="assets/background.jpg" alt="Comida" />
+
+    <mat-card-content>
+      <div class="details-row">
+        <div class="detail">
+          <mat-icon>star</mat-icon>
+          <span>{{restaurant.averageRating}}</span>
+        </div>
+        <div class="detail">
+          <mat-icon>access_time</mat-icon>
+          <span>30-40min</span>
+        </div>
+        <div class="detail">
+          <mat-icon>attach_money</mat-icon>
+          <span>{{restaurant.deliveryFee}}</span>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="pagination-controls" *ngIf="totalRestaurants > 10">
+  <button mat-button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">
+    Anterior
+  </button>
+  <span>Página {{currentPage}} de {{lastPage}}</span>
+  <button mat-button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === lastPage">
+    Próxima
+  </button>
+</div>
